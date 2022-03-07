@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 import 'package:simple_todo/screens/home_page.dart';
 import 'package:simple_todo/screens/about_page.dart';
@@ -24,17 +24,17 @@ class _TabsScreenState extends State<TabsScreen> {
   List<PersistentBottomNavBarItem> _navBarsItems() {
     return [
       PersistentBottomNavBarItem(
-          icon: const Icon(CupertinoIcons.home),
+          icon: const Icon(Icons.home),
           title: ("Home"),
-          activeColorPrimary: CupertinoColors.white,
-          inactiveColorPrimary: CupertinoColors.white,
+          activeColorPrimary: const Color.fromRGBO(80, 56, 188, 1),
+          inactiveColorPrimary: const Color.fromRGBO(80, 56, 188, 1),
           textStyle:
           const TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
       PersistentBottomNavBarItem(
-          icon: const Icon(CupertinoIcons.sparkles),
+          icon: const Icon(Icons.person),
           title: ("About"),
-          activeColorPrimary: CupertinoColors.white,
-          inactiveColorPrimary: CupertinoColors.white,
+          activeColorPrimary: const Color.fromRGBO(80, 56, 188, 1),
+          inactiveColorPrimary: const Color.fromRGBO(80, 56, 188, 1),
           textStyle:
           const TextStyle(fontSize: 16, fontWeight: FontWeight.w500))
     ];
@@ -47,7 +47,7 @@ class _TabsScreenState extends State<TabsScreen> {
       controller: _controller,
       screens: _buildScreens(),
       confineInSafeArea: true,
-      backgroundColor: const Color.fromRGBO(80, 56, 188, 1),
+      backgroundColor: const Color.fromRGBO(245, 245, 245, 1),
       navBarStyle: NavBarStyle.style6,
       items: _navBarsItems(),
       handleAndroidBackButtonPress: true,
