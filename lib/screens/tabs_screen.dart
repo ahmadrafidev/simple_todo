@@ -65,6 +65,14 @@ class _TabsScreenState extends State<TabsScreen> {
       hideNavigationBarWhenKeyboardShows: true,
       popActionScreens: PopActionScreensType.all,
       popAllScreensOnTapOfSelectedTab: true,
+      decoration: const NavBarDecoration(
+        boxShadow: <BoxShadow>[
+          BoxShadow(
+            color: Colors.grey,
+            blurRadius: 1
+          )
+        ]
+      ),
     );
   }
 }
