@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -24,6 +25,18 @@ class _HomePageState extends State<HomePage> {
         toolbarHeight: 90.0,
         shape: ShapeBorder.lerp(
             RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.0)), null, 0),
+        actions: <Widget>[
+          Padding(
+              padding: const EdgeInsets.only(right: 25.0),
+              child: GestureDetector(
+                onTap: () {},
+                child: const Icon(
+                  CupertinoIcons.person_crop_circle,
+                  size: 35.0,
+                ),
+              )
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -35,7 +48,7 @@ class _HomePageState extends State<HomePage> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
         child: const Icon(Icons.add, size: 35,),
-        backgroundColor: const Color.fromRGBO(80, 56, 188, 1),
+        backgroundColor: const Color.fromRGBO(113, 93, 204, 1),
       ),
     );
   }

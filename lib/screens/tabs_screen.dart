@@ -4,7 +4,7 @@ import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'package:simple_todo/screens/home_page.dart';
-import 'package:simple_todo/screens/about_page.dart';
+import 'package:simple_todo/screens/profile_page.dart';
 
 
 
@@ -21,7 +21,7 @@ class _TabsScreenState extends State<TabsScreen> {
   PersistentTabController(initialIndex: 0);
 
   List<Widget> _buildScreens() {
-    return [HomePage(), AboutPage(),];
+    return [HomePage(), ProfilePage(),];
   }
 
   List<PersistentBottomNavBarItem> _navBarsItems() {
@@ -38,7 +38,7 @@ class _TabsScreenState extends State<TabsScreen> {
       ),
       PersistentBottomNavBarItem(
           icon: const Icon(Icons.person),
-          title: ("About"),
+          title: ("Profile"),
           activeColorPrimary: const Color.fromRGBO(230, 67, 75, 1),
           inactiveColorPrimary: const Color.fromRGBO(80, 56, 188, 1),
           textStyle: GoogleFonts.dmSans(

@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:simple_todo/components/profile_card.dart';
 
-class AboutPage extends StatelessWidget {
+class ProfilePage extends StatelessWidget {
   static const routeName = '/about_page';
-  const AboutPage({Key? key}) : super(key: key);
+  const ProfilePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

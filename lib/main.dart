@@ -2,7 +2,7 @@
 
 import 'package:simple_todo/screens/tabs_screen.dart';
 import 'package:simple_todo/screens/home_page.dart';
-import 'package:simple_todo/screens/about_page.dart';
+import 'package:simple_todo/screens/profile_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       home: const TabsScreen(),
       routes: {
         HomePage.routeName: (ctx) => const HomePage(),
-        AboutPage.routeName: (ctx) => const AboutPage(),
+        ProfilePage.routeName: (ctx) => const ProfilePage(),
       },
     );
   }
