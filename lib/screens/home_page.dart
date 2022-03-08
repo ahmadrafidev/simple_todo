@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import 'package:cupertino_icons/cupertino_icons.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 
 class HomePage extends StatefulWidget {
   static const routeName = '/home_page';
@@ -31,7 +34,7 @@ class _HomePageState extends State<HomePage> {
               child: GestureDetector(
                 onTap: () {},
                 child: const Icon(
-                  CupertinoIcons.person_crop_circle,
+                  CupertinoIcons.calendar,
                   size: 35.0,
                 ),
               )

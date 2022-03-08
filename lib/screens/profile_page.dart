@@ -5,7 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:simple_todo/components/profile_card.dart';
 
 class ProfilePage extends StatelessWidget {
-  static const routeName = '/about_page';
+  static const routeName = '/profile_page';
   const ProfilePage({Key? key}) : super(key: key);
 
   @override
