@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 
+import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
+import 'package:google_fonts/google_fonts.dart';
+
 import 'package:simple_todo/screens/home_page.dart';
 import 'package:simple_todo/screens/about_page.dart';
 
-import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
+
 
 class TabsScreen extends StatefulWidget {
   static const routeName = '/tabs_screen';
@@ -28,15 +31,21 @@ class _TabsScreenState extends State<TabsScreen> {
           title: ("Home"),
           activeColorPrimary: const Color.fromRGBO(230, 67, 75, 1),
           inactiveColorPrimary: const Color.fromRGBO(80, 56, 188, 1),
-          textStyle:
-          const TextStyle(fontSize: 14, fontWeight: FontWeight.w500)),
+          textStyle: GoogleFonts.dmSans(
+            fontWeight: FontWeight.w500,
+            fontSize: 15,
+          ),
+      ),
       PersistentBottomNavBarItem(
           icon: const Icon(Icons.person),
           title: ("About"),
           activeColorPrimary: const Color.fromRGBO(230, 67, 75, 1),
           inactiveColorPrimary: const Color.fromRGBO(80, 56, 188, 1),
-          textStyle:
-          const TextStyle(fontSize: 14, fontWeight: FontWeight.w500))
+          textStyle: GoogleFonts.dmSans(
+            fontWeight: FontWeight.w500,
+            fontSize: 15,
+          ),
+      )
     ];
   }
 
