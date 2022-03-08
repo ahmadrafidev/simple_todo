@@ -17,7 +17,7 @@ class CustomCard extends StatelessWidget {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(25)
               ),
-              color: const Color.fromRGBO(80, 56, 188, 1),
+              color: const Color.fromRGBO(113, 93, 204, 1),
               child: Container(
                 width: double.infinity,
                 height: 450.0,
@@ -33,7 +33,7 @@ class CustomCard extends StatelessWidget {
                        style: GoogleFonts.mavenPro(
                          fontWeight: FontWeight.bold,
                          fontSize: 16,
-                         color: Colors.white,
+                         color: Colors.white70,
                        ),
                      ),
                       Text(
@@ -50,7 +50,7 @@ class CustomCard extends StatelessWidget {
                         style: GoogleFonts.mavenPro(
                           fontWeight: FontWeight.bold,
                           fontSize: 16,
-                          color: Colors.white,
+                          color: Colors.white70,
                         ),
                       ),
                       Text(
@@ -67,7 +67,7 @@ class CustomCard extends StatelessWidget {
                         style: GoogleFonts.mavenPro(
                           fontWeight: FontWeight.bold,
                           fontSize: 16,
-                          color: Colors.white,
+                          color: Colors.white70,
                         ),
                       ),
                       Text(
@@ -84,11 +84,11 @@ class CustomCard extends StatelessWidget {
                         style: GoogleFonts.mavenPro(
                           fontWeight: FontWeight.bold,
                           fontSize: 16,
-                          color: Colors.white,
+                          color: Colors.white70,
                         ),
                       ),
                       Text(
-                        "@ahhmadrafi",
+                        "IG: @ahhmadrafi",
                         style: GoogleFonts.mavenPro(
                           fontWeight: FontWeight.bold,
                           fontSize: 24,

@@ -26,17 +26,17 @@ class _TabsScreenState extends State<TabsScreen> {
       PersistentBottomNavBarItem(
           icon: const Icon(Icons.home),
           title: ("Home"),
-          activeColorPrimary: const Color.fromRGBO(80, 56, 188, 1),
+          activeColorPrimary: const Color.fromRGBO(230, 67, 75, 1),
           inactiveColorPrimary: const Color.fromRGBO(80, 56, 188, 1),
           textStyle:
-          const TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
+          const TextStyle(fontSize: 14, fontWeight: FontWeight.w500)),
       PersistentBottomNavBarItem(
           icon: const Icon(Icons.person),
           title: ("About"),
-          activeColorPrimary: const Color.fromRGBO(80, 56, 188, 1),
+          activeColorPrimary: const Color.fromRGBO(230, 67, 75, 1),
           inactiveColorPrimary: const Color.fromRGBO(80, 56, 188, 1),
           textStyle:
-          const TextStyle(fontSize: 16, fontWeight: FontWeight.w500))
+          const TextStyle(fontSize: 14, fontWeight: FontWeight.w500))
     ];
   }
 

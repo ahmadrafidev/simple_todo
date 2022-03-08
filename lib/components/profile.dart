@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_polygon/flutter_polygon.dart';
 
@@ -12,10 +11,11 @@ class CustomAvatar extends StatelessWidget {
       width: 200,
       child: ClipPolygon(
         sides: 6,
-        borderRadius: 10,
+        borderRadius: 12,
         rotate: 90,
         boxShadows: [
-          PolygonBoxShadow(color: Colors.black, elevation: 7)
+          PolygonBoxShadow(color: Colors.black, elevation: 7),
+          PolygonBoxShadow(color: Colors.deepPurpleAccent, elevation: 8)
         ],
         child: Image.asset(
             'assets/images/fotoweb.png',

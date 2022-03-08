@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+
+
 import 'package:google_fonts/google_fonts.dart';
 import 'package:simple_todo/components/profile_card.dart';
-import 'package:simple_todo/components/profile.dart';
 
 class AboutPage extends StatelessWidget {
   static const routeName = '/about_page';
@@ -21,7 +22,7 @@ class AboutPage extends StatelessWidget {
         backgroundColor: const Color.fromRGBO(57, 57, 60, 1),
         toolbarHeight: 70.0,
         shape: ShapeBorder.lerp(
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)), null, 0),
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.0)), null, 0),
       ),
       backgroundColor: Colors.white,
       body: Column(
@@ -30,6 +31,7 @@ class AboutPage extends StatelessWidget {
           Center(
             child: Column(
               children: <Widget>[
+                SizedBox(height: 20,),
                 CustomCard(),
               ],
             ),
