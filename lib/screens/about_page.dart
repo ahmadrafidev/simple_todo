@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:simple_todo/components/card.dart';
+import 'package:simple_todo/components/profile.dart';
 
 class AboutPage extends StatelessWidget {
   static const routeName = '/about_page';
@@ -16,7 +18,7 @@ class AboutPage extends StatelessWidget {
             fontSize: 32, fontWeight: FontWeight.bold
           ),
         ),
-        backgroundColor: const Color.fromRGBO(80, 56, 188, 1),
+        backgroundColor: const Color.fromRGBO(57, 57, 60, 1),
         toolbarHeight: 70.0,
         shape: ShapeBorder.lerp(
             RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)), null, 0),
@@ -28,10 +30,7 @@ class AboutPage extends StatelessWidget {
           Center(
             child: Column(
               children: <Widget>[
-                CircleAvatar(
-                  radius: 50.0,
-                  child: Image.network('https://picsum.photos/250?image=9'),
-                ),
+                CustomCard(),
                 Text(
                   "Test"
                 )
