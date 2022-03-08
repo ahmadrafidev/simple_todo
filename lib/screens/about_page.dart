@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:simple_todo/components/card.dart';
+import 'package:simple_todo/components/profile_card.dart';
 import 'package:simple_todo/components/profile.dart';
 
 class AboutPage extends StatelessWidget {
@@ -31,9 +31,6 @@ class AboutPage extends StatelessWidget {
             child: Column(
               children: <Widget>[
                 CustomCard(),
-                Text(
-                  "Test"
-                )
               ],
             ),
           )

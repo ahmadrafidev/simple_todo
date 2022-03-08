@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_polygon/flutter_polygon.dart';
 
@@ -16,8 +17,8 @@ class CustomAvatar extends StatelessWidget {
         boxShadows: [
           PolygonBoxShadow(color: Colors.black, elevation: 7)
         ],
-        child: Image.network(
-            'https://drive.google.com/file/d/1BtRCuZvN3t7yQJ01ieGbpLUwQDwiMzRM/view?usp=sharing',
+        child: Image.asset(
+            'assets/images/fotoweb.png',
           fit: BoxFit.cover,
         ),
       ),
