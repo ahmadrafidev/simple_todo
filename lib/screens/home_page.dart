@@ -5,7 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
 import '../models/todo.dart';
-import '../widget/new_todo.dart';
+import '../widget/new_task.dart';
 
 
 class HomePage extends StatefulWidget {
