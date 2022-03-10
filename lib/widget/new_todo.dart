@@ -6,6 +6,7 @@ class NewTodo extends StatefulWidget {
 
   const NewTodo(this.addTodo);
 
+
   @override
   State<NewTodo> createState() => _NewTodoState();
 }
@@ -31,7 +32,7 @@ class _NewTodoState extends State<NewTodo> {
     showDatePicker(
       context: context,
       initialDate: DateTime.now(),
-      firstDate: DateTime(2021),
+      firstDate: DateTime(1970),
       lastDate: DateTime.now(),
     ).then((pickedDate) {
       if (pickedDate == null) {
@@ -42,55 +43,57 @@ class _NewTodoState extends State<NewTodo> {
       });
     });
   }
-
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: 5,
-      child: Container(
-        padding: const EdgeInsets.all(10),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: <Widget>[
-            TextField(
-                autocorrect: true,
-                decoration: const InputDecoration(
-                  labelText: 'Name',
-                ),
-                // onChanged: (val) {
-                //   titleInput = val;
-                // },
-                controller: _titleController,
-                onSubmitted: (_) => _submitDataHandler()),
-            SizedBox(
-              height: 70,
-              child: Row(
-                children: <Widget>[
-                  Expanded(
-                    child: Text(_selectedDate == null
-                        ? "No Date Chosen!"
-                        : 'Picked Date: ${DateFormat.yMd().format(_selectedDate!)}'),
+    return Material(
+        child: SafeArea(
+          top: false,
+          child: Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                TextField(
+                  autocorrect: true,
+                  decoration: const InputDecoration(
+                    labelText: 'Name',
                   ),
-                  TextButton(
-                    onPressed: _datePicker,
-                    child: const Text(
-                      'Choose Date',
-                      style: TextStyle(fontWeight: FontWeight.bold),
+                  controller: _titleController,
+                  onSubmitted: (_) => _submitDataHandler()),
+                SizedBox(
+                  height: 70,
+                  child: Row(
+                    children: <Widget>[
+                      Expanded(
+                        child: Text(_selectedDate == null
+                            ? "No Date Chosen!"
+                            : 'Picked Date: ${DateFormat.yMd().format(_selectedDate!)}'),
+                      ),
+                      TextButton(
+                        onPressed: _datePicker,
+                        child: const Text(
+                          'Choose Date',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: const Color.fromRGBO(113, 93, 204, 1),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                ElevatedButton(
+                    child: const Text('Add Task'),
+                    style: TextButton.styleFrom(
+                      primary: Colors.white,
+                      backgroundColor: const Color.fromRGBO(113, 93, 204, 1),
                     ),
-                  ),
-                ],
-              ),
+                    onPressed: _submitDataHandler
+                    ),
+              ],
             ),
-            ElevatedButton(
-                child: const Text('Add Todo'),
-                style: TextButton.styleFrom(
-                  primary: Colors.white,
-                  backgroundColor: const Color.fromRGBO(11, 128, 236, 1),
-                ),
-                onPressed: _submitDataHandler),
-          ],
-        ),
-      ),
+          ),
+        )
     );
   }
 }
