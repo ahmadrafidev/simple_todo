@@ -6,6 +6,7 @@ import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
 import '../models/todo.dart';
 import '../widget/new_task.dart';
+import 'calendar_page.dart';
 
 
 class HomePage extends StatefulWidget {
@@ -54,7 +55,7 @@ class _HomePageState extends State<HomePage> {
               fontSize: 32, fontWeight: FontWeight.bold
           ),
         ),
-        backgroundColor: const Color.fromRGBO(57, 57, 60, 1),
+        backgroundColor: Theme.of(context).secondaryHeaderColor,
         toolbarHeight: 90.0,
         shape: ShapeBorder.lerp(
             RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.0)), null, 0),
@@ -62,7 +63,9 @@ class _HomePageState extends State<HomePage> {
           Padding(
               padding: const EdgeInsets.only(right: 25.0),
               child: GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const CalendarPage()));
+                },
                 child: const Icon(
                   CupertinoIcons.calendar,
                   size: 35.0,
@@ -81,7 +84,7 @@ class _HomePageState extends State<HomePage> {
       floatingActionButton: FloatingActionButton(
         onPressed: () => _startAddNewTodo(context),
         child: const Icon(Icons.add, size: 35,),
-        backgroundColor: const Color.fromRGBO(113, 93, 204, 1),
+        backgroundColor: Theme.of(context).primaryColor,
       ),
     );
   }

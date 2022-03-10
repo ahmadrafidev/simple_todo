@@ -17,7 +17,7 @@ class CustomCard extends StatelessWidget {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(25)
               ),
-              color: const Color.fromRGBO(113, 93, 204, 1),
+              color: Theme.of(context).primaryColor,
               child: Container(
                 width: double.infinity,
                 height: 450.0,

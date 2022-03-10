@@ -16,6 +16,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: const TabsScreen(),
+      theme: ThemeData(
+        primaryColor: Color.fromRGBO(113, 93, 204, 1),
+        secondaryHeaderColor: Color.fromRGBO(57, 57, 60, 1),
+      ),
       routes: {
         HomePage.routeName: (ctx) => const HomePage(),
         ProfilePage.routeName: (ctx) => const ProfilePage(),

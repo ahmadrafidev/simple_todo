@@ -58,10 +58,10 @@ class _NewTodoState extends State<NewTodo> {
                     hintText: 'What would you like to do?',
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                      borderSide: BorderSide(color: const Color.fromRGBO(113, 93, 204, 1), width: 2),
+                      borderSide: BorderSide(color:Theme.of(context).primaryColor, width: 2),
                     ),
                     focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: const Color.fromRGBO(113, 93, 204, 1), width: 2),
+                      borderSide: BorderSide(color: Theme.of(context).primaryColor, width: 2),
                       borderRadius: BorderRadius.all(Radius.circular(15.0))
                     )
                   ),
@@ -103,7 +103,7 @@ class _NewTodoState extends State<NewTodo> {
                       fixedSize: Size(105, 45),
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.0)),
                       primary: Colors.white,
-                      backgroundColor: const Color.fromRGBO(113, 93, 204, 1),
+                      backgroundColor: Theme.of(context).primaryColor,
                     ),
                     onPressed: _submitDataHandler
                     ),

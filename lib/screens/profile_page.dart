@@ -19,7 +19,7 @@ class ProfilePage extends StatelessWidget {
             fontSize: 32, fontWeight: FontWeight.bold
           ),
         ),
-        backgroundColor: const Color.fromRGBO(57, 57, 60, 1),
+        backgroundColor: Theme.of(context).secondaryHeaderColor,
         toolbarHeight: 70.0,
         shape: ShapeBorder.lerp(
             RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.0)), null, 0),
