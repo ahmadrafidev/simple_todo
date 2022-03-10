@@ -6,7 +6,6 @@ class NewTodo extends StatefulWidget {
 
   const NewTodo(this.addTodo);
 
-
   @override
   State<NewTodo> createState() => _NewTodoState();
 }
@@ -55,11 +54,20 @@ class _NewTodoState extends State<NewTodo> {
               children: <Widget>[
                 TextField(
                   autocorrect: true,
-                  decoration: const InputDecoration(
-                    labelText: 'Name',
+                  decoration: InputDecoration(
+                    hintText: 'What would you like to do?',
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                      borderSide: BorderSide(color: const Color.fromRGBO(113, 93, 204, 1), width: 2),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: const Color.fromRGBO(113, 93, 204, 1), width: 2),
+                      borderRadius: BorderRadius.all(Radius.circular(15.0))
+                    )
                   ),
                   controller: _titleController,
-                  onSubmitted: (_) => _submitDataHandler()),
+                  onSubmitted: (_) => _submitDataHandler()
+                ),
                 SizedBox(
                   height: 70,
                   child: Row(
@@ -67,13 +75,20 @@ class _NewTodoState extends State<NewTodo> {
                       Expanded(
                         child: Text(_selectedDate == null
                             ? "No Date Chosen!"
-                            : 'Picked Date: ${DateFormat.yMd().format(_selectedDate!)}'),
+                            : 'Picked Date: ${DateFormat.yMd().format(_selectedDate!)}',
+                          style: TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.w700,
+                            color: const Color.fromRGBO(113, 93, 204, 1),
+                          ),
+                        ),
                       ),
                       TextButton(
                         onPressed: _datePicker,
                         child: const Text(
                           'Choose Date',
                           style: TextStyle(
+                            fontSize: 16,
                             fontWeight: FontWeight.bold,
                             color: const Color.fromRGBO(113, 93, 204, 1),
                           ),
@@ -85,6 +100,8 @@ class _NewTodoState extends State<NewTodo> {
                 ElevatedButton(
                     child: const Text('Add Task'),
                     style: TextButton.styleFrom(
+                      fixedSize: Size(105, 45),
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.0)),
                       primary: Colors.white,
                       backgroundColor: const Color.fromRGBO(113, 93, 204, 1),
                     ),
