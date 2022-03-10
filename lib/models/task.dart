@@ -1,9 +1,9 @@
-class Todo {
+class Task {
   final String? id;
   final String? name;
   final DateTime? date;
 
-  Todo({
+  Task({
     required this.id,
     required this.name,
     required this.date

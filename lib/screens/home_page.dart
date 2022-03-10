@@ -4,8 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
-import '../models/todo.dart';
+import '../models/task.dart';
 import '../widget/new_task.dart';
+import '../widget/task_list.dart';
 import 'calendar_page.dart';
 
 
@@ -18,20 +19,26 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final List<Todo> _userTodo = [];
+  final List<Task> _userTask = [];
 
-  void _addNewTodo(String todoName, DateTime chosenDate) {
-    final newTodo = Todo(
+  void _deleteTask(String id) {
+    setState(() {
+      _userTask.removeWhere((ctx) => ctx.id == id);
+    });
+  }
+
+  void _addNewTask(String todoName, DateTime chosenDate) {
+    final newTodo = Task(
       id: DateTime.now().toString(),
       name: todoName,
       date: chosenDate,
     );
     setState(() {
-      _userTodo.add(newTodo);
+      _userTask.add(newTodo);
     });
   }
 
-  void _startAddNewTodo(BuildContext ctx) {
+  void _startAddNewTask(BuildContext ctx) {
     showMaterialModalBottomSheet(
         backgroundColor: Colors.white,
         context: ctx,
@@ -39,7 +46,7 @@ class _HomePageState extends State<HomePage> {
         enableDrag: true,
         builder: (_) {
           return GestureDetector(
-            child: NewTodo(_addNewTodo),
+            child: NewTodo(_addNewTask),
             onTap: () {},
             behavior: HitTestBehavior.opaque,
           );
@@ -77,12 +84,12 @@ class _HomePageState extends State<HomePage> {
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
-            Text('Test')
+            TaskList(_userTask, _deleteTask),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => _startAddNewTodo(context),
+        onPressed: () => _startAddNewTask(context),
         child: const Icon(Icons.add, size: 35,),
         backgroundColor: Theme.of(context).primaryColor,
       ),
