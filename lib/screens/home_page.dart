@@ -2,6 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:google_fonts/google_fonts.dart';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
+
+import '../models/todo.dart';
+import '../widget/new_todo.dart';
 
 
 class HomePage extends StatefulWidget {
@@ -13,6 +17,33 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final List<Todo> _userTodo = [];
+
+  void _addNewTodo(String todoName, DateTime chosenDate) {
+    final newTodo = Todo(
+      id: DateTime.now().toString(),
+      name: todoName,
+      date: chosenDate,
+    );
+    setState(() {
+      _userTodo.add(newTodo);
+    });
+  }
+
+  void _startAddNewTodo(BuildContext ctx) {
+    showMaterialModalBottomSheet(
+        backgroundColor: Colors.white,
+        context: ctx,
+        isDismissible: true,
+        enableDrag: true,
+        builder: (_) {
+          return GestureDetector(
+            child: NewTodo(_addNewTodo),
+            onTap: () {},
+            behavior: HitTestBehavior.opaque,
+          );
+        });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,7 +79,7 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () => _startAddNewTodo(context),
         child: const Icon(Icons.add, size: 35,),
         backgroundColor: const Color.fromRGBO(113, 93, 204, 1),
       ),
