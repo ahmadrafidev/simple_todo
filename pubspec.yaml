@@ -37,10 +37,19 @@ dependencies:
   google_fonts: ^2.3.1
   flutter_polygon: ^0.3.0+2
   persistent_bottom_nav_bar: ^4.0.2
+  flutter_native_splash: ^2.1.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+flutter_native_splash:
+  android: true
+  ios: true
+  image: assets/images/check.png
+  image_dark: assets/images/check.png
+  color: "#ffffff"
+  color_dark: "#000000"
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -66,6 +75,7 @@ flutter:
   #   - images/a_dot_ham.jpeg
   assets:
     - assets/images/fotoweb.png
+    - assets/images/check.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 
@@ -91,3 +101,5 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+
+
