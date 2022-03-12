@@ -98,7 +98,12 @@ class _NewTodoState extends State<NewTodo> {
                   ),
                 ),
                 ElevatedButton(
-                    child: const Text('Add Task'),
+                    child: Text(
+                      'Add Task',
+                      style: TextStyle(
+                        fontSize: 16
+                      ),
+                    ),
                     style: TextButton.styleFrom(
                       fixedSize: Size(105, 45),
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.0)),
