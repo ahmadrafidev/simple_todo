@@ -1,6 +1,5 @@
  import 'package:flutter/material.dart';
 
-import 'package:simple_todo/screens/calendar_page.dart';
 import 'package:simple_todo/screens/tabs_screen.dart';
 import 'package:simple_todo/screens/home_page.dart';
 import 'package:simple_todo/screens/profile_page.dart';
@@ -23,7 +22,6 @@ class MyApp extends StatelessWidget {
       routes: {
         HomePage.routeName: (ctx) => const HomePage(),
         ProfilePage.routeName: (ctx) => const ProfilePage(),
-        CalendarPage.routeName: (ctx) => const CalendarPage(),
       },
     );
   }

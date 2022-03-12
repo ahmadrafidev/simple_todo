@@ -29,10 +29,22 @@ class _NewTodoState extends State<NewTodo> {
 
   void _datePicker() {
     showDatePicker(
+      builder: (ctx, child) => Theme(
+        data: ThemeData().copyWith(
+          colorScheme: ColorScheme.dark(
+            primary: Colors.white,
+            onPrimary: Color.fromRGBO(140, 130, 191, 2),
+            surface: Theme.of(context).primaryColor,
+            onSurface: Colors.white
+          ),
+          dialogBackgroundColor: Color.fromRGBO(140, 130, 191, 2),
+        ),
+        child: child!,
+      ),
       context: context,
       initialDate: DateTime.now(),
       firstDate: DateTime(1970),
-      lastDate: DateTime.now(),
+      lastDate: DateTime(2100),
     ).then((pickedDate) {
       if (pickedDate == null) {
         return;
@@ -53,20 +65,20 @@ class _NewTodoState extends State<NewTodo> {
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
                 TextField(
-                  autocorrect: true,
-                  decoration: InputDecoration(
-                    hintText: 'What would you like to do?',
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                      borderSide: BorderSide(color:Theme.of(context).primaryColor, width: 2),
+                    autocorrect: true,
+                    decoration: InputDecoration(
+                        hintText: 'What would you like to do?',
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                          borderSide: BorderSide(color:Theme.of(context).primaryColor, width: 2),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Theme.of(context).primaryColor, width: 2),
+                            borderRadius: BorderRadius.all(Radius.circular(15.0))
+                        )
                     ),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Theme.of(context).primaryColor, width: 2),
-                      borderRadius: BorderRadius.all(Radius.circular(15.0))
-                    )
-                  ),
-                  controller: _titleController,
-                  onSubmitted: (_) => _submitDataHandler()
+                    controller: _titleController,
+                    onSubmitted: (_) => _submitDataHandler()
                 ),
                 SizedBox(
                   height: 70,
@@ -101,7 +113,7 @@ class _NewTodoState extends State<NewTodo> {
                     child: Text(
                       'Add Task',
                       style: TextStyle(
-                        fontSize: 16
+                          fontSize: 16
                       ),
                     ),
                     style: TextButton.styleFrom(
@@ -111,7 +123,7 @@ class _NewTodoState extends State<NewTodo> {
                       backgroundColor: Theme.of(context).primaryColor,
                     ),
                     onPressed: _submitDataHandler
-                    ),
+                ),
               ],
             ),
           ),

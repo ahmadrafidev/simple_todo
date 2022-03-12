@@ -30,7 +30,7 @@ class TaskList extends StatelessWidget {
                       'Empty Here.\n Maybe add one?',
                       textAlign: TextAlign.center,
                       style: GoogleFonts.mavenPro(
-                        color: Colors.black,
+                        color:  Theme.of(context).secondaryHeaderColor,
                         fontSize: 22,
                         fontWeight: FontWeight.w700,
                       ),

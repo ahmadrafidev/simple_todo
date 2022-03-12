@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:google_fonts/google_fonts.dart';
@@ -7,7 +6,6 @@ import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import '../models/task.dart';
 import '../widget/new_task.dart';
 import '../widget/task_list.dart';
-import 'calendar_page.dart';
 
 
 class HomePage extends StatefulWidget {
@@ -66,20 +64,6 @@ class _HomePageState extends State<HomePage> {
         toolbarHeight: 90.0,
         shape: ShapeBorder.lerp(
             RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.0)), null, 0),
-        actions: <Widget>[
-          Padding(
-              padding: const EdgeInsets.only(right: 25.0),
-              child: GestureDetector(
-                onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => const CalendarPage()));
-                },
-                child: const Icon(
-                  CupertinoIcons.calendar,
-                  size: 35.0,
-                ),
-              )
-          ),
-        ],
       ),
       body: SingleChildScrollView(
         child: Center(
