@@ -82,10 +82,12 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
       body: SingleChildScrollView(
-        child: Column(
-          children: <Widget>[
-            TaskList(_userTask, _deleteTask),
-          ],
+        child: Center(
+          child: Column(
+            children: <Widget>[
+              TaskList(_userTask, _deleteTask),
+            ],
+          ),
         ),
       ),
       floatingActionButton: FloatingActionButton(
