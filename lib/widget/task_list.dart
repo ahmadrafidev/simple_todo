@@ -16,6 +16,8 @@ class TaskList extends StatefulWidget {
 }
 
 class _TaskListState extends State<TaskList> {
+  bool isDone = false;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
