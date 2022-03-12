@@ -4,13 +4,18 @@ import 'package:intl/intl.dart';
 
 import '../models/task.dart';
 
-class TaskList extends StatelessWidget {
+class TaskList extends StatefulWidget {
 
   final List<Task> task;
   final Function deleteTask;
 
   const TaskList(this.task, this.deleteTask);
 
+  @override
+  State<TaskList> createState() => _TaskListState();
+}
+
+class _TaskListState extends State<TaskList> {
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -23,7 +28,7 @@ class TaskList extends StatelessWidget {
             SingleChildScrollView(
               child: Container(
                 height: 550,
-                child: task.isEmpty ? Column(
+                child: widget.task.isEmpty ? Column(
                   children: <Widget>[
                     SizedBox(height: 10),
                     Text(
@@ -38,38 +43,120 @@ class TaskList extends StatelessWidget {
                   ],
                 ) : ListView.builder(
                   shrinkWrap: true,
-                  itemCount: task.length,
+                  itemCount: widget.task.length,
                   itemBuilder: (ctx, index) {
-                    return Card(
-                      color: Colors.white,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15.0)
-                      ),
-                      elevation: 10,
-                      margin: const EdgeInsets.symmetric(
-                        vertical: 8,
-                        horizontal: 5,
-                      ),
-                      child: ListTile(
-                        title: Text(
-                          task[index].name!,
-                          style: TextStyle(
-                            color: Theme.of(context).primaryColor,
-                            fontWeight: FontWeight.w500,
-                            fontSize: 24
+                    return Dismissible(
+                      key: Key(widget.task[index].id!),
+                      background: Container(
+                        alignment: AlignmentDirectional.centerEnd,
+                        color: Colors.red,
+                        child: Align(
+                          child: Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Icon(
+                                  Icons.delete,
+                                  color: Colors.white,
+                                ),
+                                Text(
+                                  "Delete",
+                                  style: GoogleFonts.mavenPro(
+                                    fontSize: 20,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w700
+                                  ),
+                                ),
+                                SizedBox(width: 20.0,)
+                              ]
+                            ),
+                        ),
+                        ),
+                      onDismissed: (direction) {
+                        setState((){
+                          widget.task.removeAt(index);
+                        });
+                      },
+                      direction: DismissDirection.endToStart,
+                      confirmDismiss: (DismissDirection direction) async {
+                        return await showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return AlertDialog(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(15.0)
+                              ),
+                              title: Text(
+                                  "Confirm",
+                                style: GoogleFonts.mavenPro(
+                                  fontWeight: FontWeight.w700,
+                                  color: Colors.black,
+                                  fontSize: 24
+                                ),
+                              ),
+                              content: Text("Are you sure to delete this task?",
+                                style: GoogleFonts.dmSans(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w500,
+                                  color: Colors.black
+                                ),
+                              ),
+                              actions: <Widget>[
+                                ElevatedButton(
+                                    onPressed: () => Navigator.of(context).pop(true),
+                                    child: const Text("DELETE"),
+                                    style: ElevatedButton.styleFrom(
+                                        primary: Theme.of(context).primaryColor,
+                                        shape: RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.circular(10.0)
+                                        )
+                                    ),
+                                ),
+                                ElevatedButton(
+                                  onPressed: () => Navigator.of(context).pop(false),
+                                  child: const Text("CANCEL"),
+                                  style: ElevatedButton.styleFrom(
+                                    primary: Theme.of(context).primaryColor,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(10.0)
+                                    )
+                                  ),
+                                ),
+                              ],
+                            );
+                          },
+                        );
+                      },
+                      child: Card(
+                          color: Colors.white,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15.0)
                           ),
-                        ),
-                        subtitle: Text(
-                          DateFormat.yMMMd().format(task[index].date!,),
-                          style: TextStyle(
-                            color: Colors.black87
+                          elevation: 10,
+                          margin: const EdgeInsets.symmetric(
+                            vertical: 8,
+                            horizontal: 5,
                           ),
-                        ),
-                        trailing: IconButton(
-                          icon: const Icon(Icons.delete_rounded),
-                          color: Theme.of(context).errorColor,
-                          onPressed: () => deleteTask(task[index].id),
-                        ),
+                          child: ListTile(
+                            title: Text(
+                              widget.task[index].name!,
+                              style: TextStyle(
+                                color: Theme.of(context).primaryColor,
+                                fontWeight: FontWeight.w500,
+                                fontSize: 24
+                              ),
+                            ),
+                            subtitle: Text(
+                              DateFormat.yMMMd().format(widget.task[index].date!,),
+                              style: TextStyle(
+                                color: Colors.black87
+                              ),
+                            ),
+                            leading: IconButton(
+                              icon: const Icon(Icons.check_box_outline_blank),
+                              color: Theme.of(context).errorColor,
+                              onPressed: () => widget.deleteTask(widget.task[index].id),
+                            ),
+                          ),
                       ),
                     );
                   },
