@@ -70,11 +70,31 @@ class _TaskListState extends State<TaskList> {
                               ]
                             ),
                         ),
-                        ),
+                      ),
                       onDismissed: (direction) {
                         setState((){
-                          widget.task.removeAt(index);
-                        });
+                          var deletedItem = widget.task.removeAt(index);
+                          ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                backgroundColor: Theme.of(context).primaryColor,
+                                behavior: SnackBarBehavior.floating,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(17.0)
+                                ),
+                                content: Text(
+                                    'Deleted ${deletedItem.name}!',
+                                      style: GoogleFonts.dmSans(
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 17,
+                                      color: Colors.white
+                                    )
+                                ),
+                                action: SnackBarAction(
+                                    label: "UNDO",
+                                    onPressed: () => setState(() => widget.task.insert(index, deletedItem),) // this is what you needed
+                                ),)
+                              );
+                            });
                       },
                       direction: DismissDirection.endToStart,
                       confirmDismiss: (DismissDirection direction) async {
