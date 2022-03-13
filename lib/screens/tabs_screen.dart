@@ -27,20 +27,20 @@ class _TabsScreenState extends State<TabsScreen> {
   List<PersistentBottomNavBarItem> _navBarsItems() {
     return [
       PersistentBottomNavBarItem(
-          icon: const Icon(Icons.home),
+          icon: const Icon(Icons.home, size: 35),
           title: ("Home"),
-          activeColorPrimary: const Color.fromRGBO(230, 67, 75, 1),
-          inactiveColorPrimary: const Color.fromRGBO(80, 56, 188, 1),
+          activeColorPrimary: Theme.of(context).primaryColor,
+          inactiveColorPrimary: Colors.white,
           textStyle: GoogleFonts.dmSans(
             fontWeight: FontWeight.w500,
             fontSize: 15,
           ),
       ),
       PersistentBottomNavBarItem(
-          icon: const Icon(Icons.person),
+          icon: const Icon(Icons.person,size: 35,),
           title: ("Profile"),
-          activeColorPrimary: const Color.fromRGBO(230, 67, 75, 1),
-          inactiveColorPrimary: const Color.fromRGBO(80, 56, 188, 1),
+          activeColorPrimary: Theme.of(context).primaryColor,
+          inactiveColorPrimary: Colors.white,
           textStyle: GoogleFonts.dmSans(
             fontWeight: FontWeight.w500,
             fontSize: 15,
@@ -56,8 +56,8 @@ class _TabsScreenState extends State<TabsScreen> {
       controller: _controller,
       screens: _buildScreens(),
       confineInSafeArea: true,
-      backgroundColor: const Color.fromRGBO(245, 245, 245, 1),
-      navBarStyle: NavBarStyle.style6,
+      backgroundColor: Theme.of(context).secondaryHeaderColor,
+      navBarStyle: NavBarStyle.style12,
       items: _navBarsItems(),
       handleAndroidBackButtonPress: true,
       resizeToAvoidBottomInset: true,

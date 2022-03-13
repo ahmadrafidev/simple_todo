@@ -54,13 +54,14 @@ class _NewTodoState extends State<NewTodo> {
       });
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return Material(
         child: SafeArea(
           top: false,
           child: Padding(
-            padding: const EdgeInsets.all(10.0),
+            padding: const EdgeInsets.all(15.0),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
@@ -97,14 +98,11 @@ class _NewTodoState extends State<NewTodo> {
                       ),
                       TextButton(
                         onPressed: _datePicker,
-                        child: const Text(
-                          'Choose Date',
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                            color: const Color.fromRGBO(113, 93, 204, 1),
-                          ),
-                        ),
+                        child: Icon(
+                          Icons.calendar_month_sharp,
+                          size: 30,
+                          color: Theme.of(context).primaryColor,
+                        )
                       ),
                     ],
                   ),

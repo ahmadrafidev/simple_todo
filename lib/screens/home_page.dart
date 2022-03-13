@@ -52,32 +52,27 @@ class _HomePageState extends State<HomePage> {
   }
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'Tasks',
-          style: GoogleFonts.mavenPro(
-              fontSize: 32, fontWeight: FontWeight.bold
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          centerTitle: true,
+          title: Text(
+            'Tasks List',
+            style: GoogleFonts.mavenPro(
+                fontSize: 32, fontWeight: FontWeight.bold
+            ),
           ),
+          backgroundColor: Theme.of(context).secondaryHeaderColor,
+          toolbarHeight: 90.0,
+          shape: ShapeBorder.lerp(
+              RoundedRectangleBorder(borderRadius: BorderRadius.only(bottomLeft: Radius.circular(15.0), bottomRight: Radius.circular(15.0))), null, 0),
         ),
-        backgroundColor: Theme.of(context).secondaryHeaderColor,
-        toolbarHeight: 90.0,
-        shape: ShapeBorder.lerp(
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.0)), null, 0),
-      ),
-      body: SingleChildScrollView(
-        child: Center(
-          child: Column(
-            children: <Widget>[
-              TaskList(_userTask, _deleteTask),
-            ],
-          ),
+        body: TaskList(_userTask, _deleteTask),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () => _startAddNewTask(context),
+          child: const Icon(Icons.add, size: 35,),
+          backgroundColor: Theme.of(context).primaryColor,
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => _startAddNewTask(context),
-        child: const Icon(Icons.add, size: 35,),
-        backgroundColor: Theme.of(context).primaryColor,
       ),
     );
   }
