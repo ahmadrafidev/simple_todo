@@ -94,7 +94,8 @@ class _TaskListState extends State<TaskList> {
                             action: SnackBarAction(
                                 label: "UNDO",
                                 onPressed: () => setState(() => widget.task.insert(index, deletedItem),) // this is what you needed
-                            ),)
+                            ),
+                          )
                           );
                         });
                   },
@@ -169,11 +170,33 @@ class _TaskListState extends State<TaskList> {
                           onChanged: (bool? val){
                             setState(() {
                              widget.task[index].isDone = val;
+                             if(val == true){
+                               ScaffoldMessenger.of(context).showSnackBar(
+                                   SnackBar(
+                                     dismissDirection: DismissDirection.down,
+                                     duration: Duration(milliseconds: 1500),
+                                     backgroundColor: Theme.of(context).primaryColor,
+                                     behavior: SnackBarBehavior.floating,
+                                     shape: RoundedRectangleBorder(
+                                         borderRadius: BorderRadius.circular(17.0)
+                                     ),
+                                     content: Text(
+                                         '${widget.task[index].name} is done!',
+                                         style: GoogleFonts.dmSans(
+                                             fontWeight: FontWeight.w600,
+                                             fontSize: 17,
+                                             color: Colors.white
+                                         )
+                                     ),
+                                   )
+                               );
+                             }
                             });
                           },
                           title: Text(
                             widget.task[index].name!,
                             style: TextStyle(
+                              decoration: widget.task[index].isDone! ? TextDecoration.lineThrough: TextDecoration.none,
                               color: Theme.of(context).primaryColor,
                               fontWeight: FontWeight.w500,
                               fontSize: 24
