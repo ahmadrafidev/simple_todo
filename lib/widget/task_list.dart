@@ -76,7 +76,7 @@ class _TaskListState extends State<TaskList> {
                       var deletedItem = widget.task.removeAt(index);
                       ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
-                            dismissDirection: DismissDirection.down,
+                            dismissDirection: DismissDirection.endToStart,
                             duration: Duration(milliseconds: 1500),
                             backgroundColor: Theme.of(context).primaryColor,
                             behavior: SnackBarBehavior.floating,
@@ -93,7 +93,7 @@ class _TaskListState extends State<TaskList> {
                             ),
                             action: SnackBarAction(
                                 label: "UNDO",
-                                onPressed: () => setState(() => widget.task.insert(index, deletedItem),) // this is what you needed
+                                onPressed: () => setState(() => widget.task.insert(index, deletedItem),)
                             ),
                           )
                           );
@@ -173,8 +173,8 @@ class _TaskListState extends State<TaskList> {
                              if(val == true){
                                ScaffoldMessenger.of(context).showSnackBar(
                                    SnackBar(
-                                     dismissDirection: DismissDirection.down,
-                                     duration: Duration(milliseconds: 1500),
+                                     dismissDirection: DismissDirection.endToStart,
+                                     duration: Duration(milliseconds: 1200),
                                      backgroundColor: Theme.of(context).primaryColor,
                                      behavior: SnackBarBehavior.floating,
                                      shape: RoundedRectangleBorder(
